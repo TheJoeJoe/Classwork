@@ -1,10 +1,10 @@
 package introduction;
 
-public class Juniors extends Student {
+public class Junior extends Student {
 	
 	String wantedCollege; 
 	
-	public Juniors(String name, String college) {
+	public Junior(String name, String college) {
 		super(name);
 		this.wantedCollege = college;
 	}
