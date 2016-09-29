@@ -13,7 +13,11 @@ public class JosephSchool implements ChatBot{
 			schoolResponse = JosephMain.promptInput();
 			if(schoolResponse.indexOf("quit") >= 0){
 				inSchoolLoop = false;
-				JosephMain.talkForever();
+				JosephMain.talkForever();//////////////////////
+			}
+			if(JosephMain.school.isTriggered(schoolResponse)){
+				inSchoolLoop = false;
+				JosephMain.school.talk();
 			}
 			JosephMain.print("That's my favorite part about school too.");
 		}
