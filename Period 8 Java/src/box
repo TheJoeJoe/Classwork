@@ -34,6 +34,6 @@ public class TwoDimensionalArrayIntro {
 				for(String col: row){
 				System.out.print(col);
 			}
-			System.out.println();;
+			System.out.println();
 		}	
 	}
