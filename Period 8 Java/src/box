@@ -5,26 +5,31 @@ import java.util.Arrays;
 public class TwoDimensionalArrayIntro {
 		
 		public static void main(String[] args) {
-			String[][] pic = new String[15][15];
+			String[][] pic = new String[16][16];
 			
-			for (int row = 1; row < pic.length-1; row++) {
-				for (int col = 1; col < pic[row].length-1; col++) {
-					pic[row][col] = "_";
-					
+			for (int row = 0; row < pic.length-1; row++) {
+				for (int col = 0; col < pic[row].length-1; col++) {
+					pic[row][col] = " ";	
 				}
-			}
+			}	
 			
 			for(int col = 0; col < pic[0].length; col++){
 				pic[0][col] = "_";
 				pic[pic.length-1][col] = "_";
 			}
 			
-			//first and last column is "|"
-			for(int row = 1; row < pic.length; row++){
-				pic[row][0] = "|";
-				pic[row][pic[0].length-1] = "|";
+			for (int row = 0; row < pic.length-1; row+=3) {
+				for (int col = 0; col < pic[row].length-1; col++) {
+					pic[row][col] = "_";	
+				}
 			}
-						
+		
+			for (int col = 1; col < pic.length; col++) {
+				for (int row = 0; row < pic[col].length; row+=3) {
+					pic[col][row] = "|";	
+				}
+			}
+									
 			for (String[] row : pic) {
 				for(String col: row){
 				System.out.print(col);
@@ -32,4 +37,3 @@ public class TwoDimensionalArrayIntro {
 			System.out.println();;
 		}	
 	}
-}
