@@ -1,5 +1,6 @@
 package GUIpractice.components;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 
 public class MovingComponent extends Component implements Runnable {
@@ -32,18 +33,41 @@ public class MovingComponent extends Component implements Runnable {
 		while(running){
 			try {
 				Thread.sleep(REFRESH_RATE);
+				checkBehaviors();
+				update();
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+		}
+	} 
+
+	public void checkBehaviors() {
+		if(getY() > 300){
+			setY(300);
+			vy*=-1;
 		}
 	}
 
 	@Override
 	public void update(Graphics2D g) {
 		long currentTime = System.currentTimeMillis();
+		long difference = currentTime - moveTime;
+		if(difference >= REFRESH_RATE){
+			moveTime = currentTime;
+			posx += vx*(double)difference/REFRESH_RATE;
+			posy += vy*(double)difference/REFRESH_RATE;
+			super.setX((int)posx);
+			super.setY((int)posy);
+			}
+		drawImage(g);
 	}
 	
+	public void drawImage(Graphics2D g) {
+		g.setColor(Color.black);
+		g.fillOval(0, 0, getWidth(), getHeight());
+		
+	}
+
 	public void setX(int x) {
 		super.setX(x);
 		posx = x;
@@ -76,6 +100,13 @@ public class MovingComponent extends Component implements Runnable {
 
 	public void setRunning(boolean running) {
 		this.running = running;
+	}
+
+	public void play() {
+		if(!running){
+			Thread go = new Thread(this);
+			go.start();
+		}
 	}
 
 }

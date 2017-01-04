@@ -21,6 +21,6 @@ public class MouseCoordinateGame extends GUIApplication {
 	protected void initScreen() {
 		myScreen = new MyScreen(getWidth(), getHeight());
 		coordScreen = new CoordinateScreen(getWidth(), getHeight());
-		setScreen(myScreen);
+		setScreen(coordScreen);
 	}
 }
