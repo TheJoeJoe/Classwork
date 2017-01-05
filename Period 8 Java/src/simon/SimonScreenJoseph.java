@@ -11,13 +11,15 @@ import whackAMole.MoleInterface;
 public class SimonScreenJoseph extends ClickableScreen implements Runnable {
 
 	private TextLabel text;
+	private TextLabel label;
 	private ButtonInterfaceJoseph button;
 	private ProgressInterfaceJoseph progress;
-	private ArrayList<MoveInterface> move;
+	private ArrayList<MoveInterfaceJoseph> move;
 	int roundNumber;
 	boolean acceptingInput;
 	int sequenceIndex;
 	int lastSelectedButton;
+	int	numberOfButtons = 6;	
 	
 	public SimonScreenJoseph(int width, int height) {
 		super(width, height);
@@ -29,10 +31,37 @@ public class SimonScreenJoseph extends ClickableScreen implements Runnable {
 		// TODO Auto-generated method stub
  
 	}
- 
+  
 	@Override
 	public void initAllObjects(List<visible> viewObjects) {
+		addButtons();
+		progress = getProgress();
+		label = new TextLabel(130,230,300,40,"Let's play Simon!");
+		move = new ArrayList<MoveInterfaceJoseph>();
+		//add 2 moves to start
+		lastSelectedButton = -1;
+		move.add(randomMove());
+		move.add(randomMove());
+		roundNumber = 0;
+		viewObjects.add(progress);
+		viewObjects.add(label);
+	}
+
+	private MoveInterfaceJoseph randomMove() {
+		Button b;
+		//code that randomly selects a ButtonInterfaceX
+		return getMove(b);
+	}
+
+	/**
+	Placeholder until partner finishes implementation of ProgressInterface
+	*/
+	private ProgressInterfaceJoseph getProgress() {
 		// TODO Auto-generated method stub
+		return null;
+	}
+
+	private void addButtons() {
 
 	}
 

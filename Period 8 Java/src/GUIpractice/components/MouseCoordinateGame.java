@@ -10,7 +10,6 @@ public class MouseCoordinateGame extends GUIApplication {
 	public static MyScreen myScreen;
 	public static CoordinateScreen coordScreen;
 
-
 	public static void main(String[] args){
 		game = new MouseCoordinateGame();
 		Thread app = new Thread(game);

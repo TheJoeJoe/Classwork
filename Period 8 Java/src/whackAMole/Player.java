@@ -17,7 +17,7 @@ public class Player extends Component implements PlayerInterface{
 	@Override
 	public void increaseScore(int i) {
 		score += i;
-		
+		update();
 	}
 
 	@Override
