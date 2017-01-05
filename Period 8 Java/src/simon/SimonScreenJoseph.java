@@ -1,5 +1,6 @@
 package simon;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,12 +20,12 @@ public class SimonScreenJoseph extends ClickableScreen implements Runnable {
 	boolean acceptingInput;
 	int sequenceIndex;
 	int lastSelectedButton;
-	int	numberOfButtons = 6;	
 	
 	public SimonScreenJoseph(int width, int height) {
 		super(width, height);
 		Thread play = new Thread(this);
-		play.start();	}
+		play.start();	
+		}
 
 	@Override
 	public void run() {
@@ -62,7 +63,11 @@ public class SimonScreenJoseph extends ClickableScreen implements Runnable {
 	}
 
 	private void addButtons() {
+		int	numberOfButtons = 6;	
+		Color[] color = {Color.blue, Color.yellow, Color.red, Color.green, Color.orange, Color.cyan};
+		for(int i = 0; i < numberOfButtons; i++){
 
+		}
 	}
 
 }
