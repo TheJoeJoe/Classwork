@@ -66,8 +66,15 @@ public class SimonScreenJoseph extends ClickableScreen implements Runnable {
 		int	numberOfButtons = 6;	
 		Color[] color = {Color.blue, Color.yellow, Color.red, Color.green, Color.orange, Color.cyan};
 		for(int i = 0; i < numberOfButtons; i++){
-
+			button[i] = getAButton();
+			button[i].setColor(colors[i]);
+			button[i].setX();
+			button[i].setY();
 		}
+	}
+	
+	private ButtonInterfaceJoseph getAButton() {
+		
 	}
 
 }
